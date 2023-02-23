@@ -6,4 +6,15 @@ use yii\rest\ActiveController;
 class RouteController extends ActiveController
 {
     public $modelClass = 'app\models\Route';
+    public function behaviors() {
+      return [
+        [
+          'class' => \yii\ filters\ ContentNegotiator::className(),
+          'only' => ['index', 'view'],
+          'formats' => [
+            'application/json' => \yii\ web\ Response::FORMAT_JSON,
+          ],
+        ],
+      ];
+    }
 }

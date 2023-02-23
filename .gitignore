@@ -34,3 +34,9 @@ tests/_support/_generated
 
 #vagrant folder
 /.vagrant
+
+#custom files and folders
+/web/assets
+/web/uploads
+/config/db.php
+
