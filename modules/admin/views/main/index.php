@@ -10,7 +10,7 @@ use yii\grid\GridView;
 /** @var app\models\MainSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Mains';
+$this->title = 'Modernism objects';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="main-index">
