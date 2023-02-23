@@ -9,10 +9,10 @@ class EventController extends ActiveController
     public function behaviors() {
       return [
         [
-          'class' => \yii\ filters\ ContentNegotiator::className(),
+          'class' => \yii\filters\ContentNegotiator::className(),
           'only' => ['index', 'view'],
           'formats' => [
-            'application/json' => \yii\ web\ Response::FORMAT_JSON,
+            'application/json' => \yii\web\Response::FORMAT_JSON,
           ],
         ],
       ];
