@@ -38,9 +38,6 @@ tests/_support/_generated
 #custom files and folders
 /web/assets
 /web/uploads
-<<<<<<< HEAD
+
 /config/db.php
 
-=======
-/config/db.php
->>>>>>> 3ee9d8b12cff4a9b53b4418d8c88fb4fd020cb70
