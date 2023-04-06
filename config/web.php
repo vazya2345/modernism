@@ -16,6 +16,7 @@ $config = [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
+        '@api' => dirname(dirname(__DIR__)) . '/v1',
     ],
 
     'components' => [
@@ -59,12 +60,19 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'user'],
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'main'],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'main',
+                     'extraPatterns' => [
+                        'GET getobject' => 'getobject',
+                    ],
+                ],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'architector'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'route'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'route-object'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'event'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'photo'],
+
 
                 '/' => 'site',
                 '/site/index' => 'site/index',
@@ -86,6 +94,10 @@ $config = [
 
                 '/admin/route-object/<action:index|update|view|create|delete>' => 'admin/route-object/<action>',
                 '/admin/route-object' => 'admin/route-object/index',
+
+
+
+               
             ],
         ],
         'request' => [
