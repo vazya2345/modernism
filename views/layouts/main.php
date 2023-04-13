@@ -39,19 +39,19 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
+            ['label' => 'Asosiy', 'url' => ['/site/index']],
+            ['label' => 'Biz haqimizda', 'url' => ['/site/about']],
+            ['label' => 'Bog‘lanish', 'url' => ['/site/contact']],
             [
-                'label' => 'Admin Panel',
+                'label' => 'Ma\'lumot kiritish' ,
                 'url' => ['/main/index'],
                 'items' => [
-                    ['label' => 'Main', 'url' => ['/admin/main/index']],
-                    ['label' => 'Architector', 'url' => ['/admin/architector/index']],
-                    ['label' => 'Event', 'url' => ['/admin/event/index']],
-                    ['label' => 'Photo', 'url' => ['/admin/photo/index']],
-                    ['label' => 'Route', 'url' => ['/admin/route/index']],
-                    ['label' => 'Route Object', 'url' => ['/admin/route-object/index']],
+                    ['label' => 'Obyektlar', 'url' => ['/admin/main/index']],
+                    ['label' => 'Arhitektorlar', 'url' => ['/admin/architector/index']],
+                    ['label' => 'Tadbirlar', 'url' => ['/admin/event/index']],
+                    ['label' => 'Rasm', 'url' => ['/admin/photo/index']],
+                    ['label' => 'Marshrut', 'url' => ['/admin/route/index']],
+                    ['label' => 'Marshrut obyektlari', 'url' => ['/admin/route-object/index']],
                 ],
             ],
             [
@@ -67,11 +67,11 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                 ],
             ],
             Yii::$app->user->isGuest
-                ? ['label' => 'Login', 'url' => ['/site/login']]
+                ? ['label' => 'Tizimga kirish', 'url' => ['/site/login']]
                 : '<li class="nav-item">'
                     . Html::beginForm(['/site/logout'])
                     . Html::submitButton(
-                        'Logout (' . Yii::$app->user->identity->username . ')',
+                        'Tizimdan chiqish (' . Yii::$app->user->identity->username . ')',
                         ['class' => 'nav-link btn btn-link logout']
                     )
                     . Html::endForm()

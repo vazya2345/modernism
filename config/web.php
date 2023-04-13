@@ -6,6 +6,7 @@ $db = require __DIR__ . '/db.php';
 $config = [
     'id' => 'basic',
     'name' => 'Modernism',
+    'language' => 'uz',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'modules' => [
@@ -77,6 +78,9 @@ $config = [
                 '/' => 'site',
                 '/site/index' => 'site/index',
                 '/site/about' => 'site/about',
+                '/site/contact' => 'site/contact',
+                '/site/login' => 'site/login',
+                '/site/logout' => 'site/logout',
                 '/admin/main/<action:index|update|view|create|delete>' => 'admin/main/<action>',
                 '/admin/main' => 'admin/main/index',
 

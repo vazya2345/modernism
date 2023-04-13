@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'raw',
                 'value' => function ($model) {
                     if($model->photo_url != ""){
-                        return Html::a('Открыть', '/web/uploads/'.$model->photo_url, ['target'=>'_blank']);
+                        return Html::a('Открыть', '/uploads/'.$model->photo_url, ['target'=>'_blank']);
                     }
                     else{
                         return '';
@@ -58,7 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'raw',
                 'value' => function ($model) {
                     if($model->video_presentation_url != ""){
-                        return Html::a('Открыть', '/web/uploads/'.$model->video_presentation_url, ['target'=>'_blank']);
+                        return Html::a('Открыть', '/uploads/'.$model->video_presentation_url, ['target'=>'_blank']);
                     }
                     else{
                         return '';
@@ -70,7 +70,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'raw',
                 'value' => function ($model) {
                     if($model->threed_model_url != ""){
-                        return Html::a('Открыть', '/web/uploads/'.$model->threed_model_url, ['target'=>'_blank']);
+                        return Html::a('Открыть', '/uploads/'.$model->threed_model_url, ['target'=>'_blank']);
                     }
                     else{
                         return '';
