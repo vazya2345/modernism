@@ -37,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'raw',
                 'value' => function ($model) {
                     if($model->photo_url != ""){
-                        return Html::a('Открыть', '/web/uploads/'.$model->photo_url, ['target'=>'_blank']);
+                        return Html::a('Открыть', '/uploads/'.$model->photo_url, ['target'=>'_blank']);
                     }
                     else{
                         return '';

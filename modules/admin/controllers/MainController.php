@@ -161,35 +161,49 @@ class MainController extends Controller
 
         if ($this->request->isPost && $model->load($this->request->post())) {
 
-             //photo
-                $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
-                // var_dump($model->imageFile);die;
-                $imageFilename = 'main/image/' . time().'.'.$model->imageFile->extension;
-                if($model->imageFile->extension != NULL){
-                    if ($model->uploadImage($imageFilename)) {
-                        $model->photo_url = $imageFilename;
-                        $model->imageFile = null;
+                //photo
+                if(isset($model->imageFile)){
+                    $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+                    if($model->imageFile){
+                        $imageFilename = 'main/image/' . time().'.'.$model->imageFile->extension;
+                        if($model->imageFile->extension != NULL){
+                            if ($model->uploadImage($imageFilename)) {
+                                $model->photo_url = $imageFilename;
+                                $model->imageFile = null;
+                            }
+                        }    
                     }
                 }
+                
+                
 
                 //video
-                $model->videoFile = UploadedFile::getInstance($model, 'videoFile');
-                $videoFilename = 'main/video/' . time().'.'.$model->videoFile->extension;
-                if($model->videoFile->extension != NULL){
-                    if ($model->uploadVideo($videoFilename)) {
-                        $model->video_presentation_url = $videoFilename;
-                        $model->videoFile = null;
+                if(isset($model->videoFile)){
+                    $model->videoFile = UploadedFile::getInstance($model, 'videoFile');
+                    if($model->videoFile){
+                        $videoFilename = 'main/video/' . time().'.'.$model->videoFile->extension;
+                        if($model->videoFile->extension != NULL){
+                            if ($model->uploadVideo($videoFilename)) {
+                                $model->video_presentation_url = $videoFilename;
+                                $model->videoFile = null;
+                            }
+                        } 
                     }
                 }
 
-                //threed
-                $model->threedFile = UploadedFile::getInstance($model, 'threedFile');
+                    
 
-                $threedFilename = 'main/threed/' . time().'.'.$model->threedFile->extension;
-                if($model->threedFile->extension != NULL){
-                    if ($model->uploadThreed($threedFilename)) {
-                        $model->threed_model_url = $threedFilename;
-                        $model->threedFile = null;
+                //threed
+                if(isset($model->threedFile)){
+                    $model->threedFile = UploadedFile::getInstance($model, 'threedFile');
+                    if($model->threedFile){
+                        $threedFilename = 'main/threed/' . time().'.'.$model->threedFile->extension;
+                        if($model->threedFile->extension != NULL){
+                            if ($model->uploadThreed($threedFilename)) {
+                                $model->threed_model_url = $threedFilename;
+                                $model->threedFile = null;
+                            }
+                        }
                     }
                 }
 
