@@ -133,6 +133,21 @@ class MainController extends Controller
                     }
                 }
 
+
+                //audio
+                if(isset($model->audioFile)){
+                    $model->audioFile = UploadedFile::getInstance($model, 'audioFile');
+                    if($model->audioFile){
+                        $audioFilename = 'main/audio/' . time().'.'.$model->audioFile->extension;
+                        if($model->audioFile->extension != NULL){
+                            if ($model->uploadAudio($audioFilename)) {
+                                $model->audio_presentation_url = $audioFilename;
+                                $model->audioFile = null;
+                            }
+                        } 
+                    }
+                }
+
                 
 
                 if ($model->save()) {

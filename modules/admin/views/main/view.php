@@ -65,6 +65,18 @@ $this->params['breadcrumbs'][] = $this->title;
                     }
                 },
             ],
+            'audio_presentation_url:url' => [
+                'attribute' => 'audio_presentation_url',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    if($model->audio_presentation_url != ""){
+                        return Html::a('Открыть', '/uploads/'.$model->audio_presentation_url, ['target'=>'_blank']);
+                    }
+                    else{
+                        return '';
+                    }
+                },
+            ],
             'threed_model_url:url' => [
                 'attribute' => 'threed_model_url',
                 'format' => 'raw',

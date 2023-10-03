@@ -116,7 +116,7 @@ $config = [
                     'googleMapsApiKey' => 'UBcsRlxWxBjmZBvrW154fXJ4eJeeO4TFMp9pRLi', // <- put api key here
                     'yandexMapsLang' => 'en_US',
                     'initialCoordinates' => [41.306583, 69.275613], // [latitude, longitude]
-                    'initialZoom' => 8, // Default is 10
+                    'initialZoom' => 12, // Default is 10
                 ],
             ],
         ],
