@@ -68,6 +68,20 @@ $config = [
                         'GET getobject' => 'getobject',
                     ],
                 ],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'main',
+                     'extraPatterns' => [
+                        'GET list' => 'list',
+                    ],
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'main',
+                     'extraPatterns' => [
+                        'GET indexpage' => 'indexpage',
+                    ],
+                ],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'architector'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'route'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'route-object'],
