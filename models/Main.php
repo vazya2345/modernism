@@ -60,8 +60,8 @@ class Main extends \yii\db\ActiveRecord
     {
         return [
             [['title'], 'required'],
-            [['arcitector_id', 'order_num'], 'integer'],
-            [['desc', 'desc_ru', 'desc_en', 'main_text', 'main_text_ru', 'main_text_en', 'address', 'address_ru', 'address_en'], 'string'],
+            [['order_num'], 'integer'],
+            [['desc', 'desc_ru', 'desc_en', 'main_text', 'main_text_ru', 'main_text_en', 'address', 'address_ru', 'address_en', 'arcitector_text', 'arcitector_text_ru', 'arcitector_text_en'], 'string'],
             [['title', 'title_ru', 'title_en', 'historical_title', 'historical_title_ru', 'historical_title_en', 'photo_url', 'status', 'video_presentation_url', 'geolocation', 'threed_model_url', 'audio_presentation_url'], 'string', 'max' => 255],
             [['build_period'], 'string', 'max' => 50],
             [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, JPG'],
@@ -132,7 +132,9 @@ class Main extends \yii\db\ActiveRecord
             'photo_url' => 'Asosiy rasm',
             'build_period' => 'Qurilgan vaqti',
             'status' => 'Status',
-            'arcitector_id' => 'Me\'mor',
+            'arcitector_text' => 'Me\'morlar',
+            'arcitector_text_ru' => 'Архитекторы',
+            'arcitector_text_en' => 'Architectors',
             'desc' => 'Tasnifi',
             'desc_ru' => 'Описание',
             'desc_en' => 'Description',
@@ -150,7 +152,7 @@ class Main extends \yii\db\ActiveRecord
         ];
     }
 
-    public static function getAll($lang='uz')
+    public static function getAll($lang='ru')
     {
         $array = self::find()->all();
         if($lang=='ru'){
@@ -166,7 +168,7 @@ class Main extends \yii\db\ActiveRecord
         return $result;
     }
 
-    public static function getName($id,$lang='uz')
+    public static function getName($id,$lang='ru')
     {
         $model = self::findOne($id);
         if($model){

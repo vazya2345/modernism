@@ -34,6 +34,7 @@ class MainController extends ActiveController
                     $res['address'] = $model->address_ru;
                     $res['historical_title'] = $model->historical_title_ru;
                     $res['main_text'] = $model->main_text_ru;
+                    $res['arcitectors_text'] = $model->arcitectors_text_ru;
                   }
                   elseif($lang == 'en'){
                     $res['title'] = $model->title_en;
@@ -41,6 +42,7 @@ class MainController extends ActiveController
                     $res['address'] = $model->address_en;
                     $res['historical_title'] = $model->historical_title_en;
                     $res['main_text'] = $model->main_text_en;
+                    $res['arcitectors_text'] = $model->arcitectors_text_en;
                   }
                   else{
                     $res['title'] = $model->title;
@@ -48,10 +50,10 @@ class MainController extends ActiveController
                     $res['address'] = $model->address;
                     $res['historical_title'] = $model->historical_title;
                     $res['main_text'] = $model->main_text;
+                    $res['arcitectors_text'] = $model->arcitectors_text;
                   }
                   $res['photo_url'] = 'http://modernism.acdf.uz/uploads/'.$model->photo_url;
-                  $res['arcitector_id'] = $model->arcitector_id;
-                  $res['arcitector_name'] = Architector::getName($model->arcitector_id);
+                  
 
                   if($model->geolocation != NULL){
                     $coordinates = explode(", ", $model->geolocation);
@@ -99,6 +101,7 @@ class MainController extends ActiveController
                     $res[$i]['address'] = $model->address_ru;
                     $res[$i]['historical_title'] = $model->historical_title_ru;
                     $res[$i]['main_text'] = $model->main_text_ru;
+                    $res[$i]['arcitectors_text'] = $model->arcitectors_text_ru;
                   }
                   elseif($lang == 'en'){
                     $res[$i]['title'] = $model->title_en;
@@ -106,6 +109,7 @@ class MainController extends ActiveController
                     $res[$i]['address'] = $model->address_en;
                     $res[$i]['historical_title'] = $model->historical_title_en;
                     $res[$i]['main_text'] = $model->main_text_en;
+                    $res[$i]['arcitectors_text'] = $model->arcitectors_text_en;
                   }
                   else{
                     $res[$i]['title'] = $model->title;
@@ -113,10 +117,9 @@ class MainController extends ActiveController
                     $res[$i]['address'] = $model->address;
                     $res[$i]['historical_title'] = $model->historical_title;
                     $res[$i]['main_text'] = $model->main_text;
+                    $res[$i]['arcitectors_text'] = $model->arcitectors_text;
                   }
                   $res[$i]['photo_url'] = 'http://modernism.acdf.uz/uploads/'.$model->photo_url;
-                  $res[$i]['arcitector_id'] = $model->arcitector_id;
-                  $res[$i]['arcitector_name'] = Architector::getName($model->arcitector_id);
 
                   if($model->geolocation != NULL){
                     $coordinates = explode(", ", $model->geolocation);
