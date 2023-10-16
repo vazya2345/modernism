@@ -14,7 +14,7 @@ use app\models\Main;
 
     <?= $form->field($model, 'main_id')->dropDownList(Main::getAll()) ?>
     <br>
-    <?= $form->field($model, 'imageFile')->fileInput() ?>
+    <?= $form->field($model, 'imageFile[]')->fileInput(['multiple' => true]) ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 

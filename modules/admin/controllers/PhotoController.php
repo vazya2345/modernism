@@ -71,20 +71,26 @@ class PhotoController extends Controller
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post())) {
+                
 
-                $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
-                $filename = 'photo/' . time().'.'.$model->imageFile->extension;
+                for ($i=0; $i < count($_FILES['Photo']['error']['imageFile']); $i++) {
+                    $model_temp = new Photo();
+                    $model_temp->title = $model->title;
+                    $model_temp->main_id = $model->main_id;
+                    $model_temp->imageFile = UploadedFile::getInstance($model, 'imageFile['.$i.']');
+                    $filename = 'photo/' . time().'_'.$i.'.'.$model_temp->imageFile->extension;
 
-                if($model->imageFile->extension != NULL){
-                    if ($model->upload($filename)) {
-                        $model->photo_url = $filename;
-                        $model->imageFile = null;
+                    if($model_temp->imageFile->extension != NULL){
+                        if ($model_temp->upload($filename)) {
+                            $model_temp->photo_url = $filename;
+                            $model_temp->imageFile = null;
+                        }
                     }
+                    $model_temp->save(false);
                 }
 
-                if ($model->save()) {
-                    return $this->redirect(['view', 'id' => $model->id]);
-                }
+
+                    return $this->redirect(['view', 'id' => $model_temp->id]);
             }
         } else {
             $model->loadDefaultValues();

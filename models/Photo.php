@@ -38,19 +38,14 @@ class Photo extends \yii\db\ActiveRecord
             [['main_id'], 'integer'],
             [['photo_date'], 'safe'],
             [['photo_url', 'title'], 'string', 'max' => 255],
-            [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, JPG'],
+            [['imageFile'], 'file', 'maxFiles' => 20, 'skipOnEmpty' => true, 'extensions' => 'png, jpg, JPG'],
         ];
     }
 
     public function upload($filename)
     {
-        if ($this->validate()) {
-            // $this->imageFile->saveAs('uploads/' . $this->imageFile->baseName . time() . '.' . $this->imageFile->extension);
-            $this->imageFile->saveAs('uploads/' . $filename);
-            return true;
-        } else {
-            return false;
-        }
+        $this->imageFile->saveAs('uploads/' . $filename);
+        return true;
     }
 
     /**
