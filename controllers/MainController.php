@@ -93,6 +93,7 @@ class MainController extends ActiveController
         $i = 0;
 
         foreach ($models as $model) {
+          $res[$i]['id'] = $model->id;
           $res[$i]['title'] = $model->title;
           $res[$i]['desc'] = $model->desc;
           $res[$i]['address'] = $model->address;
