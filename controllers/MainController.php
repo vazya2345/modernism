@@ -245,6 +245,12 @@ Ilova har bir bino haqida batafsil ma’lumotga ega sahifalardan tashqari, inter
                   $res['objects'][2]['img'] = 'http://modernism.acdf.uz/uploads/'.$model2->photo_url;
                   $res['objects'][2]['id'] = $model2->id;
 
+
+
+                  $res['main_image'][0] = 'http://modernism.acdf.uz/uploads/frame1.png';
+                  $res['main_image'][1] = 'http://modernism.acdf.uz/uploads/frame2.png';
+                  $res['main_image'][2] = 'http://modernism.acdf.uz/uploads/frame3.png';
+
                   $mainres["status"] = true;
                   $mainres["result"] = $res;
                   $mainres["message"] = "OK";
