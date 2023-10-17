@@ -66,6 +66,26 @@ class MainController extends ActiveController
                   $res['threed_model_url'] = 'http://modernism.acdf.uz/uploads/'.$model->threed_model_url;
                   $res['build_period'] = $model->build_period;
                   $res['order_num'] = $model->order_num;
+
+
+                  $res['status_ru'] = $model->status;
+                  if($model->status=='не охраняется государством'){
+                    $res['status_en'] = 'unprotected';
+                    $res['status'] = 'davlat tomonidan muhofaza qilinmayd';
+                  }
+                  elseif($model->status=='охраняется государством'){
+                    $res['status_en'] = 'nationally protected';
+                    $res['status'] = 'davlat tomonidan muhofazalanadi';
+                  }
+                  else{
+                    $res['status_en'] = 'undefined';
+                    $res['status'] = 'aniqlanmagan';
+                  }
+
+
+
+
+
                   $photo_modern = Photo::find()->where(['main_id'=>$id, 'title'=>'1'])->all();
                   $photo_archive = Photo::find()->where(['main_id'=>$id, 'title'=>'2'])->all();
                   $i=0;
