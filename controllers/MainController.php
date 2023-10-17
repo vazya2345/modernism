@@ -3,6 +3,7 @@ namespace app\controllers;
  
 use yii\rest\ActiveController;
 use app\models\Main;
+use app\models\Photo;
 use app\models\Architector;
 class MainController extends ActiveController
 {
@@ -65,6 +66,19 @@ class MainController extends ActiveController
                   $res['threed_model_url'] = 'http://modernism.acdf.uz/uploads/'.$model->threed_model_url;
                   $res['build_period'] = $model->build_period;
                   $res['order_num'] = $model->order_num;
+                  $photo_modern = Photo::find()->where(['main_id'=>$id, 'title'=>'1'])->all();
+                  $photo_archive = Photo::find()->where(['main_id'=>$id, 'title'=>'2'])->all();
+                  $i=0;
+                  foreach ($photo_modern as $key) {
+                    $res['photo_modern'][$i] = 'http://modernism.acdf.uz/uploads/'.$key->photo_url;
+                    $i++;
+                  }
+                  $i=0;
+                  foreach ($photo_archive as $key) {
+                    $res['photo_archive'][$i] = 'http://modernism.acdf.uz/uploads/'.$key->photo_url;
+                    $i++;
+                  }
+
                   
 
                   $mainres["status"] = true;
