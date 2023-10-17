@@ -71,7 +71,7 @@ class MainController extends ActiveController
                   $res['status_ru'] = $model->status;
                   if($model->status=='не охраняется государством'){
                     $res['status_en'] = 'unprotected';
-                    $res['status'] = 'davlat tomonidan muhofaza qilinmayd';
+                    $res['status'] = 'davlat tomonidan muhofaza qilinmaydi';
                   }
                   elseif($model->status=='охраняется государством'){
                     $res['status_en'] = 'nationally protected';
