@@ -82,6 +82,16 @@ $config = [
                         'GET indexpage' => 'indexpage',
                     ],
                 ],
+
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => 'main',
+                     'extraPatterns' => [
+                        'GET aboutpage' => 'aboutpage',
+                    ],
+                ],
+
+                
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'architector'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'route'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'route-object'],
