@@ -52,6 +52,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                     ['label' => 'Rasm', 'url' => ['/admin/photo/index']],
                     ['label' => 'Marshrut', 'url' => ['/admin/route/index']],
                     ['label' => 'Marshrut obyektlari', 'url' => ['/admin/route-object/index']],
+                    ['label' => 'Tizim ma\'lumotlari', 'url' => ['/admin/system-variables/index']],
                 ],
             ],
             [

@@ -123,6 +123,9 @@ $config = [
                 '/admin/route-object/<action:index|update|view|create|delete>' => 'admin/route-object/<action>',
                 '/admin/route-object' => 'admin/route-object/index',
 
+                '/admin/system-variables/<action:index|update|view|create|delete>' => 'admin/system-variables/<action>',
+                '/admin/system-variables' => 'admin/system-variables/index',
+
 
 
                

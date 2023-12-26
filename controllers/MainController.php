@@ -197,7 +197,7 @@ class MainController extends ActiveController
 
 
                     $res['main_text']['title_ru'] = 'О проекте';
-                    $res['main_text']['text_ru'] = 'Tashkent Modernism.XX/XXI — масштабный исследовательский проект, посвященный архитектуре ташкентского модернизма второй половины XX века. Целью проекта является не только исследование архитектуры, но и развитие и сохранение городской среды Ташкента и наследия модернизма для горожан и гостей города. 
+                    $res['main_text']['text_ru'] = 'Tashkent Modernism XX/XXI — масштабный исследовательский проект, посвященный архитектуре ташкентского модернизма второй половины XX века. Целью проекта является не только исследование архитектуры, но и развитие и сохранение городской среды Ташкента и наследия модернизма для горожан и гостей города. 
 
 Приложение Tashkent Modernism объединяет двадцать один объект, созданный с 1964 по 1993 года, в единый маршрут, который позволяет познакомиться с архитектурным достоянием столицы Узбекистана. Начать исследование модернистских зданий можно из любой точки города: приложение подскажет, где находится ближайший объект, и поможет проложить до него маршрут. 
 
@@ -210,7 +210,7 @@ class MainController extends ActiveController
 
 
 
-                    $res['main_text']['title_en'] = 'About the protect';
+                    $res['main_text']['title_en'] = 'About the project';
                     $res['main_text']['text_en'] = 'Tashkent Modernism XX/XXI is an extensive research project dedicated to the modernist architecture of Uzbekistan\'s capital. The project aims not only to study the architecture of the second half of the twentieth century but also to develop Tashkent’s urban environment and protect the legacy of modernism for both residents and visitors of the city.
 
 The Tashkent Modernism app consolidates twenty-one architectural objects created between 1964 and 1993 into a single route, allowing users to delve into Tashkent\'s rich architectural heritage. You can begin your journey from any location in the city; the app will identify the closest landmark and assist in mapping out a route to it.
@@ -225,7 +225,7 @@ In addition to pages with detailed information about each building, the app allo
 
 
                     $res['main_text']['title'] = 'Loyiha haqida';
-                    $res['main_text']['text'] = 'Tashkent Modernism.XX/XXI” XX asrning ikkinchi yarmidagi Toshkent modernizmi meʼmorchiligiga bagʻishlangan keng koʻlamli tadqiqot loyihasi hisoblanadi. Loyiha nafaqat me’morchilikni oʻrganish, balki Toshkentning shahar muhitini rivojlantirish, shahar aholisi va mehmonlari uchun modernizm merosini asrab-avaylashga qaratilgan.
+                    $res['main_text']['text'] = '“Tashkent Modernism.XX/XXI” XX asrning ikkinchi yarmidagi Toshkent modernizmi meʼmorchiligiga bagʻishlangan keng koʻlamli tadqiqot loyihasi hisoblanadi. Loyiha nafaqat me’morchilikni oʻrganish, balki Toshkentning shahar muhitini rivojlantirish, shahar aholisi va mehmonlari uchun modernizm merosini asrab-avaylashga qaratilgan.
 
 “Tashkent Modernism” ilovasi 1964-1993 yillar oralig‘ida barpo etilgan yigirma bitta obyektni yagona marshrutga birlashtirib, O‘zbekiston poytaxtining me’moriy merosi bilan yaqindan tanishish imkonini beradi. Shaharning istalgan nuqtasidan modernistik binolarni o‘rganishni boshlash mumkin: ilova eng yaqin ob’ekt qayerda ekanligini ko‘rsatadi va unga yo‘nalish olishda yordam beradi.
 
@@ -282,7 +282,7 @@ Ilova har bir bino haqida batafsil ma’lumotga ega sahifalardan tashqari, inter
         $res['header_uz'] = 'Участники';
 
         
-        $res['main'][0]['title_ru'] = 'Комиссар:';
+        $res['main'][0]['title_ru'] = 'Комиссар'.':';
         $res['main'][0]['text_ru'][0] = 'Гаянэ Умерова, председатель Фонда развития культуры и искусства Узбекистана';
 
         $res['main'][0]['title_en'] = 'Комиссар:';
@@ -295,7 +295,7 @@ Ilova har bir bino haqida batafsil ma’lumotga ega sahifalardan tashqari, inter
 
 
 
-        $res['main'][1]['title_ru'] = 'Исследователи:';
+        $res['main'][1]['title_ru'] = 'Исследователи:'.':';
         $res['main'][1]['text_ru'][0] = 'Grace (Екатерина Головатюк и Джакомо Кантони, Ксения Бисти, Наталья Салтан, Рикардо Саломони, Чжунцзянь Ки),';
         $res['main'][1]['text_ru'][1] = 'Politecnico di Milano (Давиде Дель Курто, Андреа Гритти, София Целли, Федерика Део),';
         $res['main'][1]['text_ru'][2] = 'Борис Чухович,';
