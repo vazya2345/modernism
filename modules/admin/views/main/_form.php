@@ -72,6 +72,15 @@ use app\models\Architector;
 </div>
 <div class="card">
     <div class="card-body">
+        <?= $form->field($model, 'arcitector_text')->textarea(['rows' => 6]) ?>
+
+        <?= $form->field($model, 'arcitector_text_ru')->textarea(['rows' => 6]) ?>
+
+        <?= $form->field($model, 'arcitector_text_en')->textarea(['rows' => 6]) ?>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
         <?= $form->field($model, 'geolocation')->widget(alexantr\coordinates\CoordinatesInput::className(), ['yandexMaps' => true]) ?>
     </div>
 </div>
