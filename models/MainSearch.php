@@ -17,7 +17,7 @@ class MainSearch extends Main
     public function rules()
     {
         return [
-            [['id', 'arcitector_id'], 'integer'],
+            [['id'], 'integer'],
             [['title', 'title_ru', 'title_en', 'photo_url', 'desc', 'desc_ru', 'desc_en', 'address', 'address_ru', 'address_en', 'geolocation', 'video_presentation_url', 'threed_model_url', 'build_period'], 'safe'],
         ];
     }
@@ -58,8 +58,7 @@ class MainSearch extends Main
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id' => $this->id,
-            'arcitector_id' => $this->arcitector_id,
+            'id' => $this->id
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])

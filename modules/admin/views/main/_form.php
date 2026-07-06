@@ -41,7 +41,6 @@ use app\models\Architector;
         <?= $form->field($model, 'imageFile')->fileInput() ?>
         <?= $form->field($model, 'build_period')->textInput(['maxlength' => true]) ?>
         <?= $form->field($model, 'status')->textInput(['maxlength' => true]) ?>
-        <?= $form->field($model, 'arcitector_id')->dropDownList(Architector::getAll()) ?>
     </div>
 </div>
 <div class="card">
