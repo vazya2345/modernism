@@ -160,7 +160,7 @@ class MainController extends ActiveController
           $res[$i]['video_presentation_url'] = 'http://modernism.acdf.uz/uploads/'.$model->video_presentation_url;
           $res[$i]['audio_presentation_url'] = $model->audio_presentation_url;
           
-          $resv['threed_model_url'] = 'http://modernism.acdf.uz/uploads/'.$model->threed_model_url;
+          $res['threed_model_url'] = 'http://modernism.acdf.uz/uploads/'.$model->threed_model_url;
           $res[$i]['build_period'] = $model->build_period;
           $res[$i]['order_num'] = $model->order_num;
           $i++;                  
