@@ -121,7 +121,7 @@ class MainController extends ActiveController
     }
 
     public function actionList() {
-        $models = Main::find()->all();
+        $models = Main::find()->orderBy(['order_num' => SORT_ASC])->all();
         $mainres = [];
         $res = [];
         $i = 0;
