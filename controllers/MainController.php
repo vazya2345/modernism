@@ -120,70 +120,56 @@ class MainController extends ActiveController
 
     }
 
-    public function actionList() {
-        $models = Main::find()->orderBy(['order_num' => SORT_ASC])->all();
-        $mainres = [];
-        $res = [];
-        $i = 0;
+    public function actionList()
+    {
+        $baseUrl = 'http://modernism.acdf.uz/uploads/';
 
-        foreach ($models as $model) {
-          $res[$i]['id'] = $model->id;
-          $res[$i]['title'] = $model->title;
-          $res[$i]['desc'] = $model->desc;
-          $res[$i]['address'] = $model->address;
-          $res[$i]['historical_title'] = $model->historical_title;
-          $res[$i]['main_text'] = $model->main_text;
-          $res[$i]['arcitectors_text'] = $model->arcitectors_text;
+        $result = array_map(function ($model) use ($baseUrl) {
+            $coordinates = $model->geolocation !== null
+                ? explode(', ', $model->geolocation)
+                : [null, null];
 
-          $res[$i]['title_ru'] = $model->title_ru;
-          $res[$i]['desc_ru'] = $model->desc_ru;
-          $res[$i]['address_ru'] = $model->address_ru;
-          $res[$i]['historical_title_ru'] = $model->historical_title_ru;
-          $res[$i]['main_text_ru'] = $model->main_text_ru;
-          $res[$i]['arcitectors_text_ru'] = $model->arcitectors_text_ru;
+            return [
+                'id' => $model->id,
+                'title' => $model->title,
+                'desc' => $model->desc,
+                'address' => $model->address,
+                'historical_title' => $model->historical_title,
+                'main_text' => $model->main_text,
+                'arcitectors_text' => $model->arcitectors_text,
 
-          $res[$i]['title_en'] = $model->title_en;
-          $res[$i]['desc_en'] = $model->desc_en;
-          $res[$i]['address_en'] = $model->address_en;
-          $res[$i]['historical_title_en'] = $model->historical_title_en;
-          $res[$i]['main_text_en'] = $model->main_text_en;
-          $res[$i]['arcitectors_text_en'] = $model->arcitectors_text_en;
+                'title_ru' => $model->title_ru,
+                'desc_ru' => $model->desc_ru,
+                'address_ru' => $model->address_ru,
+                'historical_title_ru' => $model->historical_title_ru,
+                'main_text_ru' => $model->main_text_ru,
+                'arcitectors_text_ru' => $model->arcitectors_text_ru,
 
+                'title_en' => $model->title_en,
+                'desc_en' => $model->desc_en,
+                'address_en' => $model->address_en,
+                'historical_title_en' => $model->historical_title_en,
+                'main_text_en' => $model->main_text_en,
+                'arcitectors_text_en' => $model->arcitectors_text_en,
 
-          $res[$i]['photo_url'] = 'http://modernism.acdf.uz/uploads/'.$model->photo_url;
+                'photo_url' => $model->photo_url ? $baseUrl . $model->photo_url : null,
+                'geolocation' => [
+                    'latitude' => $coordinates[0] ?? null,
+                    'longitude' => $coordinates[1] ?? null,
+                ],
+                'video_presentation_url' => $model->video_presentation_url ? $baseUrl . $model->video_presentation_url : null,
+                'audio_presentation_url' => $model->audio_presentation_url,
+                'threed_model_url' => $model->threed_model_url ? $baseUrl . $model->threed_model_url : null,
+                'build_period' => $model->build_period,
+                'order_num' => $model->order_num,
+            ];
+        }, Main::find()->orderBy(['order_num' => SORT_ASC])->all());
 
-          if($model->geolocation != NULL){
-            $coordinates = explode(", ", $model->geolocation);
-          }
-          $res[$i]['geolocation'] = ['latitude' => $coordinates[0], 'longitude' => $coordinates[1]];
-
-          $res[$i]['video_presentation_url'] = 'http://modernism.acdf.uz/uploads/'.$model->video_presentation_url;
-          $res[$i]['audio_presentation_url'] = $model->audio_presentation_url;
-          
-          $res['threed_model_url'] = 'http://modernism.acdf.uz/uploads/'.$model->threed_model_url;
-          $res[$i]['build_period'] = $model->build_period;
-          $res[$i]['order_num'] = $model->order_num;
-          $i++;                  
-        }
-
-        if(count($res)>0){
-                  $mainres["status"] = true;
-                  $mainres["result"] = $res;
-                  $mainres["message"] = "OK";
-        }
-        else{
-                  $mainres["status"] = false;
-                  $mainres["result"] = $res;
-                  $mainres["message"] = "NOT FOUND";
-        }
-
-
-
-
-
-        return $mainres;
-
-
+        return [
+            'status' => !empty($result),
+            'result' => $result,
+            'message' => !empty($result) ? 'OK' : 'NOT FOUND',
+        ];
     }
 
     public function actionIndexpage() {
